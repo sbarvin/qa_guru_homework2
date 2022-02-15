@@ -63,8 +63,5 @@ public class Lesson2 {
                 text("Russia, Republic of Bashkortostan"),
                 text("NCR Noida"));
 
-        $("#closeLargeModal").scrollTo().pressEnter();
-
-        sleep(5000);
     }
 }
