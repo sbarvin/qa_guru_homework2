@@ -1,16 +1,37 @@
 plugins {
     id 'java-library'
+    id "io.qameta.allure" version "2.9.6"
 }
 
 repositories {
     mavenCentral()
 }
 
+def allureVersion = "2.17.3"
+
+allure {
+    adapter {
+        frameworks {
+            junit5 {
+                adapterVersion.set(allureVersion)
+            }
+        }
+    }
+    report {
+        version.set(allureVersion)
+    }
+}
+
 dependencies {
     testImplementation(
-            'com.codeborne:selenide:6.2.1',
-            'org.junit.jupiter:junit-jupiter:5.8.2'
+            "com.codeborne:selenide:6.4.0",
+            "org.junit.jupiter:junit-jupiter:5.8.2",
+            "io.qameta.allure:allure-selenide:$allureVersion"
     )
+}
+
+compileJava {
+    options.encoding = "UTF-8"
 }
 
 test {
